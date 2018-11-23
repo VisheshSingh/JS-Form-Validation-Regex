@@ -22,7 +22,7 @@ function validateZip() {
 
 function validateEmail() {
   const email = document.getElementById("email");
-  const re = /^([a-zA-Z\d]+)@([\w\.\d\-]+)\.([a-zA-Z]{2,6})(\.[a-zA-Z]{2,6})?$/;
+  const re = /^([a-zA-Z\d?]+)@([\w\.\d\-]+)\.([a-zA-Z]{2,6})(\.[a-zA-Z]{2,6})?$/;
 
   notifyLabel(re, email);
 }
