@@ -10,42 +10,34 @@ function validateName() {
   const name = document.getElementById("name");
   const re = /^[a-zA-Z]{2,10}$/;
 
-  if (re.test(name.value)) {
-    name.classList.remove("is-invalid");
-  } else {
-    name.classList.add("is-invalid");
-  }
+  notifyLabel(re, name);
 }
 
 function validateZip() {
   const zip = document.getElementById("zip");
   const re = /^\d{5}(-\d{4})?$/;
 
-  if (re.test(zip.value)) {
-    zip.classList.remove("is-invalid");
-  } else {
-    zip.classList.add("is-invalid");
-  }
+  notifyLabel(re, zip);
 }
 
 function validateEmail() {
   const email = document.getElementById("email");
-  const re = /^([a-zA-Z]+)@([\w\.\d\-]+)\.([a-zA-Z]{2,6})(\.[a-zA-Z]{2,6})?$/;
+  const re = /^([a-zA-Z\d]+)@([\w\.\d\-]+)\.([a-zA-Z]{2,6})(\.[a-zA-Z]{2,6})?$/;
 
-  if (re.test(email.value)) {
-    email.classList.remove("is-invalid");
-  } else {
-    email.classList.add("is-invalid");
-  }
+  notifyLabel(re, email);
 }
 
 function validatePhone() {
   const phone = document.getElementById("phone");
   const re = /^\(?\d{3}\)?[-\.\s]?\d{3}[-\s\.]?\d{4}$/;
 
-  if (re.test(phone.value)) {
-    phone.classList.remove("is-invalid");
+  notifyLabel(re, phone);
+}
+
+function notifyLabel(regex, str) {
+  if (regex.test(str.value)) {
+    str.classList.remove("is-invalid");
   } else {
-    phone.classList.add("is-invalid");
+    str.classList.add("is-invalid");
   }
 }
