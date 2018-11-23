@@ -28,6 +28,15 @@ function validateZip() {
   }
 }
 
-function validateEmail() {}
+function validateEmail() {
+  const email = document.getElementById("email");
+  const re = /^([a-zA-Z]+)@([\w\.\d\-]+)\.([a-zA-Z]{2,6})(\.[a-zA-Z]{2,6})?$/;
+
+  if (re.test(email.value)) {
+    email.classList.remove("is-invalid");
+  } else {
+    email.classList.add("is-invalid");
+  }
+}
 
 function validatePhone() {}
